@@ -25,7 +25,8 @@ dependencies = [
 
 [project.optional-dependencies]
 viz = ["matplotlib>=3.4"]
-dev = ["pytest>=7", "matplotlib>=3.4"]
+app = ["streamlit>=1.49", "plotly>=5.18", "pandas>=1.5"]
+dev = ["pytest>=7", "matplotlib>=3.4", "streamlit>=1.49", "plotly>=5.18", "pandas>=1.5"]
 
 [project.urls]
 Homepage = "https://github.com/your-org/open-promv"

@@ -34,18 +34,45 @@ responsible. That is the workflow this library provides.
 | T² and SPE variable contributions | `MonitoringResult` | contribution plots |
 | Multiway batch unfolding (MPCA) | `core.batch` | batch monitoring |
 | Score / loading / control / contribution charts | `promv.viz` | interactive plots |
+| **Upload-a-CSV web dashboard** | `app/dashboard.py` | the ProMV-style app UI |
 
 ## Install
 
 ```bash
 pip install -e .          # core (numpy, scipy)
 pip install -e ".[viz]"   # add matplotlib for plotting
-pip install -e ".[dev]"   # add pytest for the test suite
+pip install -e ".[app]"   # add the Streamlit web dashboard
+pip install -e ".[dev]"   # everything + pytest for the test suite
 ```
 
 Requires Python ≥ 3.9.
 
-## Quick start
+## Web dashboard
+
+Prefer clicking to coding? The project ships an interactive dashboard where you
+upload a CSV and get monitoring charts, fault diagnosis, and PLS predictions —
+no Python required after launch.
+
+```bash
+pip install -e ".[app]"
+streamlit run app/dashboard.py
+```
+
+Your browser opens at `http://localhost:8501`. From the sidebar you can:
+
+- **Upload a CSV** (one row per observation, one column per variable) or click
+  **Use example data** to try it instantly.
+- Pick **PCA monitoring** to flag abnormal observations (T² / SPE control
+  charts, score plot with Hotelling ellipse) and a **Diagnosis** tab whose
+  contribution bars show which variables drove each alarm.
+- Pick **PLS prediction** to relate process variables (X) to quality
+  variables (Y), see predicted-vs-actual parity plots, and rank variables by VIP.
+- Download the results (statistics or predictions) as a CSV.
+
+A ready-to-upload sample file lives at
+[`examples/data/sample_process.csv`](examples/data/sample_process.csv).
+
+## Quick start (library)
 
 ### Continuous process monitoring
 
