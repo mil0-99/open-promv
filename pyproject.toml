@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open-promv"
+version = "0.1.0"
+description = "Open-source multivariate statistical process control (PCA/PLS, T2 & SPE monitoring, batch analytics) inspired by Aspen ProMV."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "open-promv contributors" }]
+keywords = ["MSPC", "PCA", "PLS", "process monitoring", "chemometrics", "multivariate", "fault detection"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+]
+
+[project.optional-dependencies]
+viz = ["matplotlib>=3.4"]
+dev = ["pytest>=7", "matplotlib>=3.4"]
+
+[project.urls]
+Homepage = "https://github.com/your-org/open-promv"
+Issues = "https://github.com/your-org/open-promv/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
